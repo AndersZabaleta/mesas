@@ -33,7 +33,7 @@ app.post("/api/anyadir", function (req, res) {
     tamanyo: req.body.tamanyo,
     color: req.body.color,
     material: req.body.material,
-    patas: req.body.patas,
+    patas: parseInt(req.body.patas),
   };
 
   db.collection("mesas").insertOne(mesa, function (err, datos) {
