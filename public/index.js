@@ -49,3 +49,40 @@ function anyadir() {
       recibirMesas();
     });
 }
+
+function cambiar() {
+  const color = document.getElementById("cambiarColor").value;
+  fetch(`/api/modificar/${color}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({}),
+  })
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (datos) {
+      console.log(datos);
+      recibirMesas();
+    });
+}
+
+function borrar() {
+  const patas = document.getElementById("numeroPatas").value;
+
+  fetch(`/api/borrar/${patas}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ tamanyo: "3x4", color: "Verde" }),
+  })
+    .then(function (res) {
+      return res.json();
+    })
+    .then(function (patatas) {
+      console.log(patatas);
+      recibirMesas();
+    });
+}

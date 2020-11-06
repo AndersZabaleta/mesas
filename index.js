@@ -71,6 +71,8 @@ app.put("/api/modificar/:color", function (req, res) {
 
 app.delete("/api/borrar/:patas", function (req, res) {
   const patas = parseInt(req.params.patas);
+  const body = req.body;
+  console.log(body);
   db.collection("mesas").deleteMany({ patas: patas }, function (err, datos) {
     if (err !== null) {
       res.send(err);
